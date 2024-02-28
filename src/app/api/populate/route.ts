@@ -3,6 +3,8 @@ import { populations } from "@/db/schema";
 import { and, inArray, desc, eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 
+export const dynamic = 'force-dynamic'
+
 const representCountry = ['World', 'China', 'India', 'United States', 'Russia', 'Japan', 'Indonesia', 'Germany', 'Brazil', 'United Kingdom', 'Italy', 'France', 'Bangladesh']
 
 export async function GET(req: NextRequest) {
