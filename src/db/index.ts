@@ -1,32 +1,13 @@
+import '@/lib/config'
 import { drizzle } from 'drizzle-orm/vercel-postgres';
 import { sql } from "@vercel/postgres";
-import {
-    integer,
-    numeric,
-  pgTable,
-  serial,
-  text,
-  timestamp,
-  uniqueIndex,
-} from 'drizzle-orm/pg-core';
+import * as schema from './schema'
 
 // Use this object to send drizzle queries to your DB
-export const db = drizzle(sql);
+export const db = drizzle(sql, { schema });
 
-export const populationTable = pgTable('population', {
-    id: serial('id').primaryKey(),
-    country_name: text('country_name'),
-    population: numeric('population'),
-    year: integer('year'),
-    createdAt: timestamp('createdAt').defaultNow().notNull(),
-}, (population) => {
-    return {
-        yearIdx: uniqueIndex('year_idx').on(population.year),
-        countryIdx: uniqueIndex('country_idx').on(population.country_name),
-    }
-})
+export type Populations = typeof schema.populations.$inferInsert
 
-export const getExampleTable = async () => {
-    const selectResult = await db.select().from(populationTable);
-    console.log('Results', selectResult);
-  };
+export async function insertPopulations(populations: Populations[]) {
+    return db.insert(schema.populations).values(populations).returning()
+}

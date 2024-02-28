@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:generate": "npx drizzle-kit generate:pg",
+    "db:migrate": "npx tsx src/script/migrate.ts",
+    "db:seed": "npx tsx src/script/seed.ts",
+    "db": "yarn db:generate && yarn db:migrate && yarn db:seed"
   },
   "dependencies": {
     "@vercel/postgres": "^0.7.2",
