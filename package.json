@@ -13,13 +13,18 @@
     "db": "yarn db:generate && yarn db:migrate && yarn db:seed"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.24.1",
     "@vercel/postgres": "^0.7.2",
+    "d3": "^7.8.5",
     "drizzle-orm": "^0.29.4",
+    "lodash": "^4.17.21",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
