@@ -4,6 +4,8 @@ import Information from "./_components/information";
 import './globals.css'
 import { minMax } from "./lib/config";
 
+export const dynamic = 'force-dynamic'
+
 export default function Home(props: { searchParams: Record<string, string>}) {
   const params = new URLSearchParams(props?.searchParams)
 
