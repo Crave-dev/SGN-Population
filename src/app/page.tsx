@@ -2,9 +2,7 @@ import { redirect } from "next/navigation";
 import Information from "./_components/information";
 
 import './globals.css'
-
-
-export const minMax = [1950, 2021]
+import { minMax } from "./lib/config";
 
 export default function Home(props: { searchParams: Record<string, string>}) {
   const params = new URLSearchParams(props?.searchParams)

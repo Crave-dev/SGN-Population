@@ -1,12 +1,12 @@
 'use client'
 
 import { useQuery } from "@tanstack/react-query"
-import { ReadonlyURLSearchParams, useRouter, useSearchParams } from "next/navigation"
-import { type CSSProperties, useEffect, ChangeEventHandler, useCallback, useState, useRef } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
+import { type CSSProperties, ChangeEventHandler, useState, useRef } from "react"
 import Barchart from "./bar-chart"
 import throttle from 'lodash/throttle'
 import FilterChart from "./bar-chart/filter"
-import { minMax } from "../page"
+import { minMax } from "../lib/config"
 
 interface Props {
     style?: CSSProperties

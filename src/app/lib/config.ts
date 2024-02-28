@@ -1,0 +1,1 @@
+export const minMax = [1950, 2021]
